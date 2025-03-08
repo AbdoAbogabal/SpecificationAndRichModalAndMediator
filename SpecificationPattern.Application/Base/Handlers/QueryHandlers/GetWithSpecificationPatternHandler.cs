@@ -8,6 +8,6 @@ public sealed class GetWithSpecificationPatternHandler<T> :
 
     public GetWithSpecificationPatternHandler(IGenericRepository<T> genericRepository) => _genericRepository = genericRepository;
 
-    public async Task<Result<IEnumerable<T>>> Handle(GetWithSpecificationPatternQuery<T> request, CancellationToken cancellationToken) =>
-                     Result.Success(_genericRepository.FindWithSpecificationPattern(request.specification));
+    public async Task<IEnumerable<T>> Handle(GetWithSpecificationPatternQuery<T> request, CancellationToken cancellationToken) =>
+                     _genericRepository.FindWithSpecificationPattern(request.specification);
 }

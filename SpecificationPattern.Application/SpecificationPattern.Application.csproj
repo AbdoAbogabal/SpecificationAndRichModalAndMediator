@@ -16,11 +16,4 @@
     <ProjectReference Include="..\SpecificationPattern.Infrastructure\SpecificationPattern.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Handlers\CommandHandlers\" />
-    <Folder Include="Handlers\QueryHandlers\" />
-    <Folder Include="Queries\" />
-  </ItemGroup>
-
 </Project>

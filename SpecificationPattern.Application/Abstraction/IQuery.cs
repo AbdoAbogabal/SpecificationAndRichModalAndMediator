@@ -1,5 +1,5 @@
 ﻿namespace SpecificationPattern.Application.Abstraction;
 
-public interface IQuery<TResponse> : IRequest<Result<TResponse>>
+public interface IQuery<TResponse> : IRequest<TResponse>
 {
 }

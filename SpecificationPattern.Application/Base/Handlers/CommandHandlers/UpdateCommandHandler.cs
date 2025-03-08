@@ -7,17 +7,15 @@ public sealed class UpdateCommandHandler<T> : ICommandHandler<UpdateCommand<T>>
 
     public UpdateCommandHandler(IGenericRepository<T> genericRepository) => _genericRepository = genericRepository;
 
-    public async Task<Result> Handle(UpdateCommand<T> request, CancellationToken cancellationToken)
+    public async Task Handle(UpdateCommand<T> request, CancellationToken cancellationToken)
     {
         try
         {
             await _genericRepository.Edit(request.entity);
-
-            return Result.Success("Updated");
         }
         catch (Exception ex)
         {
-            return Result.Failure(ex.Message);
+            throw new Exception(ex.Message);
         }
 
     }

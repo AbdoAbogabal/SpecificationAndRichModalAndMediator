@@ -7,7 +7,7 @@ public sealed class GetByIdHandler<T> : IQueryHandler<GetByIdQuery<T>, T>
 
     public GetByIdHandler(IGenericRepository<T> genericRepository) => _genericRepository = genericRepository;
 
-    public async Task<Result<T>> Handle(GetByIdQuery<T> request, CancellationToken cancellationToken)
+    public async Task<T> Handle(GetByIdQuery<T> request, CancellationToken cancellationToken)
     {
         T? entity = await _genericRepository.GetByIdAsync(request.id);
 

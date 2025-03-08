@@ -7,7 +7,7 @@ public sealed class GetAllHandler<T> : IQueryHandler<GetAllQuery<T>, List<T>>
 
     public GetAllHandler(IGenericRepository<T> genericRepository) => _genericRepository = genericRepository;
 
-    public async Task<Result<List<T>>> Handle(GetAllQuery<T> request, CancellationToken cancellationToken)
+    public async Task<List<T>> Handle(GetAllQuery<T> request, CancellationToken cancellationToken)
     {
         var entities = await _genericRepository.GetAllAsync();
 

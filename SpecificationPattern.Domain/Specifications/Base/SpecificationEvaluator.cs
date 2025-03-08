@@ -6,7 +6,7 @@ public static class SpecificationEvaluator<T> where T : BaseEntity
     {
         var query = inputQuery;
 
-        if (specification.Includes is not null)
+        if (specification.Includes is not null && specification.Includes.Any())
             query = specification.Includes.Aggregate(query, (current, include) => current.Include(include));
 
         if (specification.Criteria is not null)
