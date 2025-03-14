@@ -4,12 +4,22 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication()
+                .AddCookie(IdentityConstants.ApplicationScheme)
+                .AddBearerToken(IdentityConstants.BearerScheme);
+
+builder.Services.AddIdentityCore<User>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddApiEndpoints();
+
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
+builder.Services.AddDbContext<ApplicationDbContext>(e => e.UseSqlServer(connectionString, e => e.MigrationsAssembly("SpecificationPattern.Infrastructure").EnableRetryOnFailure())
+                                                        .EnableDetailedErrors()
+                                                        .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString).EnableDetailedErrors());
+
 builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
-
-
 
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllHandler<>).Assembly));
@@ -22,9 +32,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-using IServiceScope scope = app.Services.CreateScope();
-ApplicationDbContext dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-dbContext.Database.Migrate();
+ExtenstionMethods.UpdateDataBase(app);
 
 app.UseMiddleware<ExceptionHandler>();
 
@@ -34,4 +42,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapIdentityApi<User>();
+
 app.Run();
+

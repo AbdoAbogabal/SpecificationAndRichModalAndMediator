@@ -1,6 +1,10 @@
 ﻿namespace SpecificationPattern.Domain;
-public class Address : BaseEntity
+public partial class Address : BaseEntity
 {
-    public string City { get; set; }
-    public string Street { get; set; }
+    private string _city;
+    public AddressCity AddressCity { get => (AddressCity)_city; set => _city = value; }
+
+
+    private string _street;
+    public AddressStreet AddressStreet { get => (AddressStreet)_street; set => _street = value; }
 }

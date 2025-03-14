@@ -1,5 +1,5 @@
 ﻿global using SpecificationPattern.Domain;
-global using SpecificationPattern.Infrastructure;
+global using SpecificationPattern.Infrastructure.Base;
 global using SpecificationPattern.Application.Abstraction;
 global using SpecificationPattern.Application.Base.Queries;
 global using SpecificationPattern.Application.Base.Commands;

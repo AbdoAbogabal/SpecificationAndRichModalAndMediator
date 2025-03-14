@@ -14,7 +14,7 @@ public class BaseSpecifcation<T> : IBaseSpecification<T> where T : BaseEntity
             Criteria = criteria;
 
         if (includeExpression is not null)
-            includeExpression.ForEach(e => AddInclude(e));
+            includeExpression.ForEach(AddInclude);
 
         if (pagination is not null)
         {

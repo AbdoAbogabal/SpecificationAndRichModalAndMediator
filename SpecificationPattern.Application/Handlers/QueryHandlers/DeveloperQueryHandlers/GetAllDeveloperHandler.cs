@@ -7,15 +7,8 @@ public class GetAllDeveloperHandler : IQueryHandler<GetAllDevelopersQuery, List<
     public GetAllDeveloperHandler(IGenericRepository<Developer> repository) => _repository = repository;
     public async Task<List<Developer>> Handle(GetAllDevelopersQuery request, CancellationToken cancellationToken)
     {
-        try
-        {
-            var developers = await _repository.GetAllAsync();
+        var developers = await _repository.GetAllAsync();
 
-            return developers;
-        }
-        catch (Exception ex)
-        {
-            throw new Exception(ex.Message);
-        }
+        return developers;
     }
 }

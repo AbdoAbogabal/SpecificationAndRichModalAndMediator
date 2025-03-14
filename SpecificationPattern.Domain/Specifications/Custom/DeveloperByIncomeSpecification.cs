@@ -4,6 +4,6 @@ public class DeveloperByIncomeSpecification : BaseSpecifcation<Developer>
 {
     public DeveloperByIncomeSpecification()
     {
-        AddOrderByDescending(x => x.EstimatedIncome);
+        AddOrderByDescending(x => x.DeveloperEstimatedIncome);
     }
 }

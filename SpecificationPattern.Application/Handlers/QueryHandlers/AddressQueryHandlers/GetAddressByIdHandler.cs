@@ -7,15 +7,8 @@ public class GetAddressByIdHandler : IQueryHandler<GetAddressByIdQuery, Address>
     public GetAddressByIdHandler(IGenericRepository<Address> repository) => _repository = repository;
     public async Task<Address> Handle(GetAddressByIdQuery request, CancellationToken cancellationToken)
     {
-        try
-        {
-            var address = await _repository.GetByIdAsync(request.id);
+        var address = await _repository.GetByIdAsync(request.id);
 
-            return address;
-        }
-        catch (Exception ex)
-        {
-            throw new Exception(ex.Message);
-        }
+        return address;
     }
 }

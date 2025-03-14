@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationPattern.Infras
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationPattern.Application", "SpecificationPattern.Application\SpecificationPattern.Application.csproj", "{D87F0254-93D0-4790-9256-B5F76ED9880C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationPattern.UnitTest", "SpecificationPattern.UnitTest\SpecificationPattern.UnitTest.csproj", "{F60F2A97-348F-4ADA-9DE1-7053F17779C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D87F0254-93D0-4790-9256-B5F76ED9880C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D87F0254-93D0-4790-9256-B5F76ED9880C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D87F0254-93D0-4790-9256-B5F76ED9880C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F60F2A97-348F-4ADA-9DE1-7053F17779C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F60F2A97-348F-4ADA-9DE1-7053F17779C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F60F2A97-348F-4ADA-9DE1-7053F17779C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F60F2A97-348F-4ADA-9DE1-7053F17779C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

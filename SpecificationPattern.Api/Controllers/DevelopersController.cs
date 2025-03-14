@@ -55,11 +55,11 @@ public class DevelopersController : ControllerBase
     public async Task<IActionResult> Specify(int yearsOfExperience, int estimatedIncome)
     {
         Pagination pagination = new() { Take = 1, Skip = 1 };
-        OrderBySpecification<Developer> orderBySpecification = new() { IsAsending = true, OrderBy = (e) => e.Name };
+        OrderBySpecification<Developer> orderBySpecification = new() { IsAsending = true, OrderBy = (e) => e.DeveloperName };
 
         var specification = new BaseSpecifcation<Developer>(
             pagination: pagination,
-            criteria: e => e.YearsOfExperience <= yearsOfExperience && e.EstimatedIncome <= estimatedIncome,
+            criteria: e => e.DeveloperYearsOfExperience <= yearsOfExperience && e.DeveloperEstimatedIncome <= estimatedIncome,
             orderBySpecification: orderBySpecification,
             includeExpression: [(e) => e.Address]
             );

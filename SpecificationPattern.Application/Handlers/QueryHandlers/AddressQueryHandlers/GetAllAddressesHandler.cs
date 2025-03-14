@@ -8,15 +8,8 @@ public class GetAllAddressesHandler : IQueryHandler<GetAllAddressesQuery, IEnume
 
     public async Task<IEnumerable<Address>> Handle(GetAllAddressesQuery request, CancellationToken cancellationToken)
     {
-        try
-        {
-            var addresses = await _repository.GetAllAsync();
+        var addresses = await _repository.GetAllAsync();
 
-            return addresses;
-        }
-        catch (Exception ex)
-        {
-            throw new Exception(ex.Message);
-        }
+        return addresses;
     }
 }

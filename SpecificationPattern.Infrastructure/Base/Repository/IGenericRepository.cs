@@ -1,4 +1,4 @@
-﻿namespace SpecificationPattern.Infrastructure;
+﻿namespace SpecificationPattern.Infrastructure.Base;
 
 public interface IGenericRepository<T> where T : BaseEntity
 {

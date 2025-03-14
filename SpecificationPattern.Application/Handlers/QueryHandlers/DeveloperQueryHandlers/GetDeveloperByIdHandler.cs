@@ -8,15 +8,8 @@ public class GetDeveloperByIdHandler : IQueryHandler<GetDeveloperByIdQuery, Deve
 
     public async Task<Developer> Handle(GetDeveloperByIdQuery request, CancellationToken cancellationToken)
     {
-        try
-        {
-            var developer = await _repository.GetByIdAsync(request.id);
+        var developer = await _repository.GetByIdAsync(request.id);
 
-            return developer;
-        }
-        catch (Exception ex)
-        {
-            throw new Exception(ex.Message);
-        }
+        return developer;
     }
 }
